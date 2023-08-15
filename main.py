@@ -1,17 +1,7 @@
 from fastapi import FastAPI, Query
-from pydantic import BaseModel
-from typing import Annotated
 import json
-
+import Scheduler.app
 app = FastAPI()
-
-
-class Item(BaseModel):
-    name: str
-    descripton: Annotated[str | None, Query(max_length=50)] = None
-    price: float
-    tax: float | None = None
-
 
 
 
@@ -31,10 +21,6 @@ async def custom_test():
     data = json.load(f)
     f.close()
     return data
-
-@app.post("/post-test")
-async def post_param(item: Item):
-    return item
 
 
 # @app.get("/items/{item_id}")

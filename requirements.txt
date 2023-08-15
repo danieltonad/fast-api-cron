@@ -1,6 +1,6 @@
 fastapi
 uvicorn[standard]
 pydantic
-httpx
 deta
 apscheduler
+python-dotenv
